@@ -5,3 +5,6 @@
 - React-Router
 - Redux
 - Redux-Saga
+## コマンド
+- yarn start 走る
+- yarn build 作る
