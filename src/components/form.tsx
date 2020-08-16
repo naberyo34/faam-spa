@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 const Form: React.FC = () => {
@@ -22,6 +22,22 @@ const Form: React.FC = () => {
       return;
     }
 
+    axios({
+      method: 'post',
+      // url: 'http://localhost:5000/api/v1/posts/',
+      url: 'https://faam-app.herokuapp.com/api/v1/posts/',
+      data: {
+        id,
+        username,
+        text,
+      },
+    }).then((res) => {
+      console.log(res.data);
+      alert('送信に成功しました');
+    });
+  };
+
+  useEffect(() => {
     // TODO: やり方が汚い 現在の投稿数を取得して投稿IDを +1 にしている
     axios({
       method: 'get',
@@ -29,23 +45,8 @@ const Form: React.FC = () => {
       url: 'https://faam-app.herokuapp.com/api/v1/posts/',
     }).then((res) => {
       setId(res.data.length + 1);
-
-      // TODO: 入れ子になっててキモい
-      axios({
-        method: 'post',
-        // url: 'http://localhost:5000/api/v1/posts/',
-        url: 'https://faam-app.herokuapp.com/api/v1/posts/',
-        data: {
-          id,
-          username,
-          text,
-        },
-      }).then((res) => {
-        console.log(res.data);
-        alert('送信に成功しました');
-      });
     });
-  };
+  }, []);
 
   return (
     <form onSubmit={handleSubmit}>
