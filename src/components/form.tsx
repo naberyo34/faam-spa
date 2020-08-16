@@ -29,20 +29,21 @@ const Form: React.FC = () => {
       url: 'https://faam-app.herokuapp.com/api/v1/posts/',
     }).then((res) => {
       setId(res.data.length + 1);
-    });
 
-    axios({
-      method: 'post',
-      // url: 'http://localhost:5000/api/v1/posts/',
-      url: 'https://faam-app.herokuapp.com/api/v1/posts/',
-      data: {
-        id,
-        username,
-        text,
-      },
-    }).then((res) => {
-      console.log(res.data);
-      alert('送信に成功しました');
+      // TODO: 入れ子になっててキモい
+      axios({
+        method: 'post',
+        // url: 'http://localhost:5000/api/v1/posts/',
+        url: 'https://faam-app.herokuapp.com/api/v1/posts/',
+        data: {
+          id,
+          username,
+          text,
+        },
+      }).then((res) => {
+        console.log(res.data);
+        alert('送信に成功しました');
+      });
     });
   };
 
