@@ -22,7 +22,6 @@ const Form: React.FC = () => {
     }
 
     axios({
-      withCredentials: true,
       method: 'post',
       // url: 'http://localhost:5000/api/v1/posts/',
       url: 'https://faam-app.herokuapp.com/api/v1/posts/',
