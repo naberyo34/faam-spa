@@ -1,26 +1,36 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import { PostData } from './interfaces';
+import Post from './components/post';
+import Form from './components/form';
+import './reset.css';
 import './App.css';
 
-function App() {
+const App: React.FC = () => {
+  const [posts, setPosts] = useState<PostData[]>();
+
+  useEffect(() => {
+    // axios で APIサーバーから投稿一覧を取得
+    axios({
+      method: 'get',
+      // url: 'http://localhost:5000/api/v1/posts/',
+      url: 'https://faam-app.herokuapp.com/api/v1/posts/',
+    }).then((res) => {
+      console.log(res.data);
+      setPosts(res.data);
+    });
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <section>
+      <h1>Expressで作ったRESTful APIを叩くスレ</h1>
+      {posts &&
+        posts.map((post) => (
+          <Post id={post.id} username={post.username} text={post.text} />
+        ))}
+      <Form />
+    </section>
   );
-}
+};
 
 export default App;
