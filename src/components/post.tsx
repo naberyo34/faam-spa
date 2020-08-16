@@ -4,9 +4,9 @@ import { PostData } from '../interfaces';
 const Post: React.FC<PostData> = (props) => {
   const { id, username, text } = props;
   return (
-    <div>
+    <div className="post">
       <h2>
-        {id} 名前 : <span>{username}</span> 2020/08/17(月)
+        {id} 名前 : <span className="username">{username}</span> 2020/08/17(月)
       </h2>
       <p>{text}</p>
     </div>

@@ -49,7 +49,7 @@ const Form: React.FC = () => {
   }, []);
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="form">
       <input type="text" placeholder="名前" onChange={handleChangeName} />
       <input type="text" placeholder="本文" onChange={handleChangeText} />
       <input type="submit" placeholder="送信" />
