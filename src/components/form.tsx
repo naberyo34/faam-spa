@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 
 const Form: React.FC = () => {
+  const [id, setId] = useState<number>();
   const [username, setUsername] = useState<string>('名無しさん');
   const [text, setText] = useState<string>();
 
@@ -21,11 +22,21 @@ const Form: React.FC = () => {
       return;
     }
 
+    // TODO: やり方が汚い 現在の投稿数を取得して投稿IDを +1 にしている
+    axios({
+      method: 'get',
+      // url: 'http://localhost:5000/api/v1/posts/',
+      url: 'https://faam-app.herokuapp.com/api/v1/posts/',
+    }).then((res) => {
+      setId(res.data.length + 1);
+    });
+
     axios({
       method: 'post',
       // url: 'http://localhost:5000/api/v1/posts/',
       url: 'https://faam-app.herokuapp.com/api/v1/posts/',
       data: {
+        id,
         username,
         text,
       },
