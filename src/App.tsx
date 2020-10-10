@@ -26,7 +26,7 @@ const App: React.FC = () => {
       <h1>Expressで作ったRESTful APIを叩くスレ</h1>
       {posts &&
         posts.map((post) => (
-          <Post id={post.id} username={post.username} text={post.text} />
+          <Post key={post.id} name={post.name} age={post.age} />
         ))}
       <Form />
     </section>

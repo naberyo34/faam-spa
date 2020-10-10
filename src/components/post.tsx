@@ -2,13 +2,13 @@ import React from 'react';
 import { PostData } from '../interfaces';
 
 const Post: React.FC<PostData> = (props) => {
-  const { id, username, text } = props;
+  const { name, age } = props;
   return (
     <div className="post">
       <h2>
-        {id} 名前 : <span className="username">{username}</span> 2020/08/17(月)
+        名前 : <span className="username">{name}</span>
       </h2>
-      <p>{text}</p>
+      <p>{age}</p>
     </div>
   );
 };
