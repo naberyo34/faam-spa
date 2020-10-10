@@ -1,34 +1,40 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { PostData } from './interfaces';
-import Post from './components/post';
-import Form from './components/form';
+import { FarmDocument } from './interfaces';
+import Farm from './components/farm';
 import './reset.css';
 import './App.css';
 
 const App: React.FC = () => {
-  const [posts, setPosts] = useState<PostData[]>();
+  const [farms, setFarms] = useState<FarmDocument[]>();
 
   useEffect(() => {
-    // axios で APIサーバーから投稿一覧を取得
+    const api = process.env.API_URI
+      ? `${process.env.API_URI}/farm/`
+      : 'http://localhost:5000/api/v1/farm/';
+
+    // axios で APIサーバーからファームを全件取得
     axios({
       method: 'get',
-      // url: 'http://localhost:5000/api/v1/posts/',
-      url: 'https://faam-app.herokuapp.com/api/v1/posts/',
+      url: api,
     }).then((res) => {
-      console.log(res.data);
-      setPosts(res.data);
+      setFarms(res.data);
     });
   }, []);
 
   return (
     <section>
-      <h1>Expressで作ったRESTful APIを叩くスレ</h1>
-      {posts &&
-        posts.map((post) => (
-          <Post key={post.id} name={post.name} age={post.age} />
+      <h1>1行日記 (仮)</h1>
+      {farms &&
+        farms.map((farm) => (
+          <Farm
+            key={farm._id}
+            _id={farm._id}
+            author={farm.author}
+            title={farm.title}
+            contributions={farm.contributions}
+          />
         ))}
-      <Form />
     </section>
   );
 };
