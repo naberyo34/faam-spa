@@ -7,3 +7,16 @@ body * {
   font-size: 1.6rem;
   background: #efefef;
 }
+
+.contributeDay {
+  background: red;
+}
+
+tr {
+  height: 50px;
+}
+
+td {
+  width: 50px;
+  background: pink;
+}

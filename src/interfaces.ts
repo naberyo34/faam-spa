@@ -1,11 +1,11 @@
 export interface Contribution {
-  date: number;
+  date: Date;
   description: string;
 }
 
 export interface FarmDocument {
   _id: string;
   author: string;
-  title: number;
+  title: string;
   contributions: Contribution[]; 
 }
