@@ -8,11 +8,14 @@ import './App.css';
 const App: React.FC = () => {
   const [farms, setFarms] = useState<FarmDocument[]>();
 
-  useEffect(() => {
-    const api = process.env.API_URI
-      ? `${process.env.API_URI}/farm/`
-      : 'http://localhost:5000/api/v1/farm/';
+  // TODO: ローカル環境の判定をしているがちょっと雑
+  const hostName = document.location.hostname;
+  const api =
+    hostName === 'localhost'
+      ? 'http://localhost:5000/api/v1/farm/'
+      : 'https://faam-app.herokuapp.com/api/v1/farm/';
 
+  useEffect(() => {
     // axios で APIサーバーからファームを全件取得
     axios({
       method: 'get',
