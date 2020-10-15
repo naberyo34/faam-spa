@@ -40,7 +40,6 @@ const getCalenderArray = (date: Date) => {
 const Farm: React.FC<FarmDocument> = (props) => {
   const { author, title, contributions } = props;
   const calendar = getCalenderArray(new Date());
-  console.log(new Date());
 
   return (
     <div>

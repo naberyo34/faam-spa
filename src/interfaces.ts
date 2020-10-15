@@ -1,5 +1,5 @@
 export interface Contribution {
-  date: Date;
+  date: string;
   description: string;
 }
 
