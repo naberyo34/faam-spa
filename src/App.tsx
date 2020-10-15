@@ -21,7 +21,6 @@ const App: React.FC = () => {
 
   return (
     <section>
-      <h1>1行日記 (仮)</h1>
       {farms &&
         farms.map((farm) => (
           <Farm
