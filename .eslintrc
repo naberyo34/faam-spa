@@ -1,0 +1,82 @@
+{
+  "extends": [
+    "airbnb",
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:import/typescript",
+    "plugin:jest/recommended",
+    "plugin:jsx-a11y/recommended",
+    "plugin:prettier/recommended",
+    "plugin:react/recommended",
+    "prettier",
+    "prettier/@typescript-eslint",
+    "prettier/react",
+    "prettier/standard"
+  ],
+  "plugins": [
+    "@typescript-eslint",
+    "import",
+    "jest",
+    "jsx-a11y",
+    "prefer-arrow",
+    "prettier",
+    "react",
+    "react-hooks"
+  ],
+  "env": {
+    "browser": true,
+    "node": true,
+    "es6": true,
+    "jest/globals": true
+  },
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 11,
+    "project": ["./tsconfig.json", "./functions/tsconfig.json"],
+    "sourceType": "module"
+  },
+  "rules": {
+    "no-alert": 0, // UIを本格的に整備するまではとりあえず使いたい
+    "jsx-a11y/no-onchange": "off", // さすがに厳しすぎるしコストに見合わない
+    "react/jsx-filename-extension": [
+      "error",
+      {
+        "extensions": ["jsx", "tsx"]
+      }
+    ],
+    "react/prop-types": "off",
+    "import/extensions": [
+      "error",
+      "always",
+      {
+        "js": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never"
+      }
+    ],
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": true
+      }
+    ]
+  },
+  "settings": {
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts", ".tsx"]
+    },
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", "jsx", ".ts", ".tsx"],
+        "paths": ["src"]
+      }
+    }
+  }
+}

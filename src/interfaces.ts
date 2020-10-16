@@ -1,6 +1,13 @@
 export interface Contribution {
-  date: Date;
-  description: string;
+  date: string;
+  description?: string;
+}
+
+// TODO: 気持ち悪い
+export interface PostFarm {
+  author: string;
+  title: string;
+  contributions: Contribution[]; 
 }
 
 export interface FarmDocument {

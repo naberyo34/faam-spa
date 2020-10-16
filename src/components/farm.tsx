@@ -1,5 +1,4 @@
 import React from 'react';
-import { FarmDocument } from '../interfaces';
 import {
   getDate,
   getDay,
@@ -9,6 +8,7 @@ import {
   startOfMonth,
   endOfMonth,
 } from 'date-fns';
+import { FarmDocument } from '../interfaces';
 
 // TODO: コンポーネントの切り分けは後でやります
 
@@ -38,15 +38,12 @@ const getCalenderArray = (date: Date) => {
 };
 
 const Farm: React.FC<FarmDocument> = (props) => {
-  const { author, title, contributions } = props;
+  const { title, contributions } = props;
   const calendar = getCalenderArray(new Date());
-  console.log(new Date());
 
   return (
     <div>
-      <h2>
-        {author}さんの一言日記「{title}」
-      </h2>
+      <h2>「{title}」農場</h2>
       <table>
         <thead>
           <tr>
@@ -71,7 +68,9 @@ const Farm: React.FC<FarmDocument> = (props) => {
 
                 // getDay は曜日(0 ~ 6)、getDate は日付を取得
                 return isContributeDay ? (
-                  <td key={getDay(date)} className="contributeDay">{getDate(date)}</td>
+                  <td key={getDay(date)} className="contributeDay">
+                    {getDate(date)}
+                  </td>
                 ) : (
                   <td key={getDay(date)}>{getDate(date)}</td>
                 );

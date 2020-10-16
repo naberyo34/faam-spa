@@ -40,6 +40,22 @@
     "@types/testing-library__jest-dom": "^5.9.2",
     "@types/testing-library__react": "^10.2.0",
     "axios": "^0.19.2",
-    "date-fns": "^2.16.1"
+    "date-fns": "^2.16.1",
+    "eslint": "6.6.0",
+    "eslint-config-airbnb": "^18.2.0",
+    "eslint-config-prettier": "^6.12.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jest": "^24.1.0",
+    "eslint-plugin-jsx-a11y": "^6.3.1",
+    "eslint-plugin-prefer-arrow": "^1.2.2",
+    "eslint-plugin-react": "^7.21.4",
+    "eslint-plugin-react-hooks": "^4.1.2",
+    "stylelint": "^13.7.2",
+    "stylelint-config-prettier": "^8.0.2",
+    "stylelint-config-recess-order": "^2.1.0",
+    "stylelint-config-standard": "^20.0.0",
+    "stylelint-config-styled-components": "^0.1.1",
+    "stylelint-order": "^4.1.0",
+    "stylelint-processor-styled-components": "^1.10.0"
   }
 }
