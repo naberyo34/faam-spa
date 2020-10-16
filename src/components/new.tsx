@@ -27,8 +27,8 @@ const New: React.FC = () => {
     // [POST] axios で ファームを追加
     axios({
       method: 'post',
-      url: `http://localhost:5000/api/v1/farm/`,
-      // url: `https://faam-app.herokuapp.com/api/v1/farm/`,
+      // url: `http://localhost:5000/api/v1/farm/`,
+      url: `https://faam-app.herokuapp.com/api/v1/farm/`,
       data,
     }).then((_res) => {
       alert('送信に成功しました');
