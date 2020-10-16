@@ -14,8 +14,8 @@ const App: React.FC = () => {
     // [GET] axios で APIサーバーからファームを全件取得
     axios({
       method: 'get',
-      url: 'http://localhost:5000/api/v1/farm/',
-      // url: 'https://faam-app.herokuapp.com/api/v1/farm/',
+      // url: 'http://localhost:5000/api/v1/farm/',
+      url: 'https://faam-app.herokuapp.com/api/v1/farm/',
     }).then((res) => {
       setFarms(res.data);
     });

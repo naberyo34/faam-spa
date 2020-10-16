@@ -26,8 +26,8 @@ const Post: React.FC<PostProps> = (props) => {
     // [PUT] axios で 対象のファームにコントリビューションを追加
     axios({
       method: 'put',
-      url: `http://localhost:5000/api/v1/farm/${_id}/contribution`,
-      // url: `https://faam-app.herokuapp.com/api/v1/farm/${_id}/contribution`,
+      // url: `http://localhost:5000/api/v1/farm/${_id}/contribution`,
+      url: `https://faam-app.herokuapp.com/api/v1/farm/${_id}/contribution`,
       data,
     }).then((_res) => {
       alert('送信に成功しました');
