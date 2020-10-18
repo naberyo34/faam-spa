@@ -37,6 +37,11 @@ export const postNewFarm = (data: PostFarm) =>
       throw err;
     });
 
+/**
+ * [PUT] axios で 対象のカレンダーに「達成記録」を追加
+ * @param _id 対象カレンダーのID
+ * @param data 送信する値
+ */
 export const putNewContribution = (_id: string, data: Contribution) =>
   axios({
     method: 'put',

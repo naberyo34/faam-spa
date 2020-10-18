@@ -5,18 +5,71 @@ html {
 body * {
   color: #333;
   font-size: 1.6rem;
-  background: #efefef;
+  font-feature-settings: "palt";
 }
 
-.contributeDay {
-  background: red;
+.App {
+  display: flex;
+  justify-content: center;
+  background: #eee;
 }
 
-tr {
-  height: 50px;
+.App__inner {
+  width: 100vw;
+  max-width: 768px;
+  min-width: 320px;
+  padding: 16px;
 }
 
-td {
-  width: 50px;
-  background: pink;
+.farm:not(:first-child) {
+  padding-top: 16px;
+  margin-top: 16px;
+  border-top: 1px solid #ccc;
+}
+
+.farm__title {
+  font-size: 2.4rem;
+  font-weight: bold;
+  color: #666;
+}
+
+.farm__calender {
+  margin-top: 16px;
+  width: 100%;
+  background: #fff;
+  border-radius: 4px;
+}
+
+.farm__calender th, td {
+  padding: 8px;
+}
+
+.farm__contributeDay {
+  background: #afa;
+}
+
+.form {
+  display: flex;
+  margin-top: 16px;
+}
+
+.form__text {
+  padding: 8px;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+}
+
+.form__button {
+  padding: 8px;
+  margin-left: 8px;
+  line-height: 1;
+  color: #a00;
+  background: #faa;
+  border: none;
+  border-radius: 4px;
+}
+
+.postNewFarm {
+  padding: 8px;
+  background: #ccc;
 }
