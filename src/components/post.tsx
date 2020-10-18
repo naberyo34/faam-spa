@@ -37,7 +37,7 @@ const Post: React.FC<PostProps> = (props) => {
   return (
     <form onSubmit={handleSubmit}>
       <input type="text" placeholder="ひとこと" onChange={handleChange} />
-      <button type="submit">送信</button>
+      <button type="submit">達成!</button>
     </form>
   );
 };

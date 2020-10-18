@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import { FarmDocument } from './interfaces';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { State } from './modules/reducers';
+import { getAllFarms } from './modules/action';
 import Farm from './components/farm';
 import Post from './components/post';
 import New from './components/new';
@@ -8,17 +9,11 @@ import './reset.css';
 import './App.css';
 
 const App: React.FC = () => {
-  const [farms, setFarms] = useState<FarmDocument[]>();
+  const dispatch = useDispatch();
+  const farms = useSelector((state: State) => state.farms);
 
   useEffect(() => {
-    // [GET] axios で APIサーバーからファームを全件取得
-    axios({
-      method: 'get',
-      // url: 'http://localhost:5000/api/v1/farm/',
-      url: 'https://faam-app.herokuapp.com/api/v1/farm/',
-    }).then((res) => {
-      setFarms(res.data);
-    });
+    dispatch(getAllFarms.start());
   }, []);
 
   return (
