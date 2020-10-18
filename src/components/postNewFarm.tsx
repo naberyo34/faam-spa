@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import { useDispatch } from 'react-redux';
+import { postNewFarm } from '../modules/action';
 import { PostFarm } from '../interfaces';
 
-const New: React.FC = () => {
+const PostNewFarm: React.FC = () => {
+  const dispatch = useDispatch();
   const [title, setTitle] = useState<string>();
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
@@ -24,15 +26,7 @@ const New: React.FC = () => {
       contributions: [],
     };
 
-    // [POST] axios で ファームを追加
-    axios({
-      method: 'post',
-      // url: `http://localhost:5000/api/v1/farm/`,
-      url: `https://faam-app.herokuapp.com/api/v1/farm/`,
-      data,
-    }).then((_res) => {
-      alert('送信に成功しました');
-    });
+    dispatch(postNewFarm.start(data));
   };
 
   return (
@@ -47,4 +41,4 @@ const New: React.FC = () => {
   );
 };
 
-export default New;
+export default PostNewFarm;

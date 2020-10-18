@@ -3,8 +3,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { State } from './modules/reducers';
 import { getAllFarms } from './modules/action';
 import Farm from './components/farm';
-import Post from './components/post';
-import New from './components/new';
+import PutNewContribution from './components/putNewContribution';
+import PostNewFarm from './components/postNewFarm';
 import './reset.css';
 import './App.css';
 
@@ -27,10 +27,10 @@ const App: React.FC = () => {
               title={farm.title}
               contributions={farm.contributions}
             />
-            <Post _id={farm._id} />
+            <PutNewContribution _id={farm._id} />
           </React.Fragment>
         ))}
-      <New />
+      <PostNewFarm />
     </section>
   );
 };

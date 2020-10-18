@@ -43,7 +43,7 @@ const Farm: React.FC<FarmDocument> = (props) => {
 
   return (
     <div>
-      <h2>「{title}」農場</h2>
+      <h2>{title}</h2>
       <table>
         <thead>
           <tr>
@@ -66,13 +66,14 @@ const Farm: React.FC<FarmDocument> = (props) => {
                     getDate(new Date(contribution.date)) === getDate(date)
                 );
 
-                // getDay は曜日(0 ~ 6)、getDate は日付を取得
-                return isContributeDay ? (
-                  <td key={getDay(date)} className="contributeDay">
+                return (
+                  // getDay は曜日(0 ~ 6)、getDate は日付を取得
+                  <td
+                    key={getDay(date)}
+                    className={isContributeDay ? 'contributeDay' : ''}
+                  >
                     {getDate(date)}
                   </td>
-                ) : (
-                  <td key={getDay(date)}>{getDate(date)}</td>
                 );
               })}
             </tr>
