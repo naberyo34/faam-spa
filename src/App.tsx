@@ -19,20 +19,22 @@ const App: React.FC = () => {
   }, []);
 
   return (
-    <section>
-      {farms &&
-        farms.map((farm) => (
-          <React.Fragment key={farm._id}>
-            <Farm
-              _id={farm._id}
-              author={farm.author}
-              title={farm.title}
-              contributions={farm.contributions}
-            />
-            <PutNewContribution _id={farm._id} />
-          </React.Fragment>
-        ))}
-      <PostNewFarm />
+    <section className="App">
+      <div className="App__inner">
+        {farms &&
+          farms.map((farm) => (
+            <React.Fragment key={farm._id}>
+              <Farm
+                _id={farm._id}
+                author={farm.author}
+                title={farm.title}
+                contributions={farm.contributions}
+              />
+              <PutNewContribution _id={farm._id} />
+            </React.Fragment>
+          ))}
+        <PostNewFarm />
+      </div>
     </section>
   );
 };

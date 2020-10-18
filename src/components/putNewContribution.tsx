@@ -33,9 +33,9 @@ const PutNewContribution: React.FC<Props> = (props) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input type="text" placeholder="ひとこと" onChange={handleChange} />
-      <button type="submit">達成!</button>
+    <form onSubmit={handleSubmit} className="form">
+      <input type="text" placeholder="ひとこと (任意)" onChange={handleChange} className="form__text" />
+      <button type="submit" className="form__button" >達成!</button>
     </form>
   );
 };

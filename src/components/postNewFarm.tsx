@@ -30,14 +30,17 @@ const PostNewFarm: React.FC = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        placeholder="新しい農場名を入れてね"
-        onChange={handleChange}
-      />
-      <button type="submit">作成!</button>
-    </form>
+      <form onSubmit={handleSubmit} className="form postNewFarm">
+        <input
+          type="text"
+          placeholder="新規作成"
+          onChange={handleChange}
+          className="form__text form__text--ml"
+        />
+        <button type="submit" className="form__button">
+          作成!
+        </button>
+      </form>
   );
 };
 

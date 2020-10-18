@@ -42,9 +42,9 @@ const Farm: React.FC<FarmDocument> = (props) => {
   const calendar = getCalenderArray(new Date());
 
   return (
-    <div>
-      <h2>{title}</h2>
-      <table>
+    <div className="farm">
+      <h2 className="farm__title">{title}</h2>
+      <table className="farm__calender">
         <thead>
           <tr>
             <th>日</th>
@@ -70,7 +70,7 @@ const Farm: React.FC<FarmDocument> = (props) => {
                   // getDay は曜日(0 ~ 6)、getDate は日付を取得
                   <td
                     key={getDay(date)}
-                    className={isContributeDay ? 'contributeDay' : ''}
+                    className={isContributeDay ? 'farm__contributeDay' : ''}
                   >
                     {getDate(date)}
                   </td>
