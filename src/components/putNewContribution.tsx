@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import { useDispatch } from 'react-redux';
+import { putNewContribution } from '../modules/action';
 import { Contribution } from '../interfaces';
 
-interface PostProps {
+interface Props {
   _id: string;
 }
 
-const Post: React.FC<PostProps> = (props) => {
+const PutNewContribution: React.FC<Props> = (props) => {
+  const dispatch = useDispatch();
   const { _id } = props;
   const [description, setDescription] = useState<string>();
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -21,25 +23,21 @@ const Post: React.FC<PostProps> = (props) => {
     const data: Contribution = {
       date,
       description,
-    } 
-
-    // [PUT] axios で 対象のファームにコントリビューションを追加
-    axios({
-      method: 'put',
-      // url: `http://localhost:5000/api/v1/farm/${_id}/contribution`,
-      url: `https://faam-app.herokuapp.com/api/v1/farm/${_id}/contribution`,
+    };
+    const payload = {
+      _id,
       data,
-    }).then((_res) => {
-      alert('送信に成功しました');
-    });
+    };
+
+    dispatch(putNewContribution.start(payload));
   };
 
   return (
     <form onSubmit={handleSubmit}>
       <input type="text" placeholder="ひとこと" onChange={handleChange} />
-      <button type="submit">送信</button>
+      <button type="submit">達成!</button>
     </form>
   );
 };
 
-export default Post;
+export default PutNewContribution;
