@@ -63,7 +63,7 @@ const reducer = (state = initialState, action: Action): State => {
         farms: action.payload.result,
         isLoading: false,
       };
-    case types.PUT_NEW_CONTRIBUTION_SUCCEED:
+    case types.PUT_NEW_CONTRIBUTION_FAIL:
       return {
         ...state,
         isLoading: false,
