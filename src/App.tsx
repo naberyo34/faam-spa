@@ -14,6 +14,8 @@ const App: React.FC = () => {
 
   useEffect(() => {
     dispatch(getAllFarms.start());
+    // TODO: いい方法ないかな
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
